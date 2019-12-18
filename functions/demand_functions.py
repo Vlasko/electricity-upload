@@ -32,7 +32,7 @@ def current_demand_json_to_csv():
     if os.stat(directory+'/files/demand/'+today+'_demand.csv').st_size == 0:
             f.write('Timestamp,Demand (W)\r\n')
 
-    demand_file = directory + 'tplink-energy-monitor/8006AD6134CA39AE8FD966D4E1A709821B20C760-log.json'
+    demand_file = directory + '/tplink-energy-monitor/8006AD6134CA39AE8FD966D4E1A709821B20C760-log.json'
 
     with open(demand_file) as g:
         demand_list = json.load(g)
