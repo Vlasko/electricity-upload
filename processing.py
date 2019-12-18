@@ -1,8 +1,5 @@
 # Standard Library Imports
 import os
-import sys
-
-sys.path
 
 #Third Party Imports
 from datetime import datetime
