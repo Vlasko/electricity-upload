@@ -2,6 +2,5 @@
 keys
 functions/__pychache__
 *.pyc
-*.json
 .DS_Store
 files
