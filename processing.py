@@ -27,8 +27,8 @@ def upload_demand():
     upload_to_aws(directory+'/files/demand/'+ today +'_demand.csv',
                   'fridgedemand', today +'_demand.csv')
 
-condition = False
-while condition == False:
-    if datetime.now().hour == 23 and datetime.now().minute == 59:
-        upload_demand()
-        sleep(60)
+# condition = False
+# while condition == False:
+#     if datetime.now().hour == 23 and datetime.now().minute == 59:
+#         upload_demand()
+#         sleep(60)

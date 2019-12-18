@@ -7,8 +7,8 @@ from datetime import datetime
 
 def generic_demand_json_to_csv(json_path, name):
     directory = os.getcwd()
-    f = open(directory+'/files/Demand/'+name+'_demand.csv', 'a+')
-    if os.stat(directory+'/files/Demand/'+name+'_demand.csv').st_size == 0:
+    f = open(directory+'/files/demand/'+name+'_demand.csv', 'a+')
+    if os.stat(directory+'/files/demand/'+name+'_demand.csv').st_size == 0:
             f.write('Timestamp,Demand (W)\r\n')
 
     demand_file = directory + json_path
@@ -28,8 +28,8 @@ def current_demand_json_to_csv(json_path):
     directory = os.getcwd()
     today = str(datetime.now().date())
 
-    f = open(directory+'/files/Demand/'+today+'_demand.csv', 'a+')
-    if os.stat(directory+'/files/Demand/'+today+'_demand.csv').st_size == 0:
+    f = open(directory+'/files/demand/'+today+'_demand.csv', 'a+')
+    if os.stat(directory+'/files/demand/'+today+'_demand.csv').st_size == 0:
             f.write('Timestamp,Demand (W)\r\n')
 
     demand_file = directory + json_path
@@ -49,8 +49,8 @@ def demand_json_to_csv(json_path):
     directory = os.getcwd()
     date = json_path[13:23]
 
-    f = open(directory+'/files/Demand/'+date+'_demand.csv', 'a+')
-    if os.stat(directory+'/files/Demand/'+date+'_demand.csv').st_size == 0:
+    f = open(directory+'/files/demand/'+date+'_demand.csv', 'a+')
+    if os.stat(directory+'/files/demand/'+date+'_demand.csv').st_size == 0:
             f.write('Timestamp,Demand (W)\r\n')
 
     demand_file = directory + json_path
