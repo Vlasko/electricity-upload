@@ -23,7 +23,7 @@ def upload_demand():
     upload_to_aws(directory+'/files/prices/'+ today +'_prices.csv',
                   'lukaprices', today +'_prices.csv')
     # Demand
-    current_demand_json_to_csv(directory+'/tplink-energy-monitor/8006AD6134CA39AE8FD966D4E1A709821B20C760-log.json')
+    current_demand_json_to_csv()
     upload_to_aws(directory+'/files/demand/'+ today +'_demand.csv',
                   'fridgedemand', today +'_demand.csv')
 
