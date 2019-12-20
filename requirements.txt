@@ -3,5 +3,4 @@ requests
 datetime
 boto3
 botocore
-matplotlib
 Adafruit_DHT
