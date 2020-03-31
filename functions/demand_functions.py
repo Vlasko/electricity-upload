@@ -65,3 +65,22 @@ def demand_json_to_csv(json_path):
 
             if power is not None :
                 f.write('{0},{1:0.2f}\r\n'.format(timestamp.strftime('%Y-%m-%dT%H:%M:00Z'), power))
+
+def demand_json_list_to_csv(demand_list):
+    directory = os.getcwd()
+    timestamp = datetime.fromtimestamp(demand_list[0]['ts']/1000)
+    date = str(timestamp.date())
+
+    f = open(directory+'/files/demand/'+date+'_demand.csv', 'a+')
+    if os.stat(directory+'/files/demand/'+date+'_demand.csv').st_size == 0:
+            f.write('Timestamp,Demand (W)\r\n')
+
+    for entry in demand_list:
+        javascript_time = entry['ts']
+        timestamp = datetime.fromtimestamp(javascript_time/1000)
+        # aware_timestamp = pytz.utc.localize(timestamp)
+        power = entry['pw']
+        print(power)
+
+        if power is not None :
+            f.write('{0},{1:0.2f}\r\n'.format(timestamp.strftime('%Y-%m-%dT%H:%M:00Z'), power))
