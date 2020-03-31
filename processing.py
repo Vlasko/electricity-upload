@@ -1,6 +1,7 @@
 # Standard Library Imports
 import os
 from time import sleep
+import requests
 
 #Third Party Imports
 from datetime import datetime
@@ -30,5 +31,10 @@ def upload_demand():
 condition = False
 while condition == False:
     if datetime.now().hour == 23 and datetime.now().minute == 59:
-        upload_demand()
+        try:
+            upload_demand()
+            requests.post('https://maker.ifttt.com/trigger/upload_event/with/key/dbcGxPSBCligASFX4fRk3p')
+        except Exception as e:
+            print(e)
+            requests.post('https://maker.ifttt.com/trigger/upload_error/with/key/dbcGxPSBCligASFX4fRk3p')
         sleep(60)
