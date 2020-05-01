@@ -28,13 +28,11 @@ def upload_demand():
     upload_to_aws(directory+'/files/demand/'+ today +'_demand.csv',
                   'fridgedemand', today +'_demand.csv')
 
-condition = False
-while condition == False:
-    if datetime.now().hour == 23 and datetime.now().minute == 59:
-        try:
-            upload_demand()
-            requests.post('https://maker.ifttt.com/trigger/upload_event/with/key/dbcGxPSBCligASFX4fRk3p')
-        except Exception as e:
-            print(e)
-            requests.post('https://maker.ifttt.com/trigger/upload_error/with/key/dbcGxPSBCligASFX4fRk3p')
-        sleep(60)
+try:
+    upload_demand()
+    requests.post('https://maker.ifttt.com/trigger/upload_event/with/key/dbcGxPSBCligASFX4fRk3p')
+except Exception as e:
+    print(e)
+    requests.post('https://maker.ifttt.com/trigger/upload_error/with/key/dbcGxPSBCligASFX4fRk3p')
+
+print(datetime.now())
