@@ -9,10 +9,10 @@ See https://github.com/jamesbarnett91/tplink-energy-monitor
 
 Can be installed using;
 
-```git clone https://github.com/jamesbarnett91/tplink-energy-monitor  
+`git clone https://github.com/jamesbarnett91/tplink-energy-monitor  
 && cd tplink-energy-monitor
 npm install
-npm start```
+npm start`
 
 ## Storing & Uploading Data
 Data is then stored locally on the Raspberry Pi before being uploaded to AWS every night using `processing.py` sceduled with crontab.
