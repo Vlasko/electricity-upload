@@ -13,8 +13,9 @@ See https://github.com/jamesbarnett91/tplink-energy-monitor
 
 Once in the `electricity-upload` directory it should be installed using;
 
-```    git clone https://github.com/jamesbarnett91/tplink-energy-monitor
-    cd tplink -energy-monitor
+```   
+    git clone https://github.com/jamesbarnett91/tplink-energy-monitor
+    cd tplink-energy-monitor
     npm install
     npm start
 ```
