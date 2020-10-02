@@ -7,6 +7,22 @@ To use this project AWS and Octopus API keys will need to be saved in the necess
 Code is run on Raspberry Pi using SSH and the terminal multiplexer, Screen.
 
 ## Set Up
+### Set Up Octopus API & AWS Buckets
+Create accounts for AWS and the Octopus Energy API, you will need API keys for both to use this project. Create two files with the following format;
+
+```
+    keys/AWS_keys.py
+
+    ACCESS_KEY = 'insert_key'
+    SECRET_KEY = 'insert_key'
+```
+&
+```
+    keys/octopus_keys.py
+
+    API_Key = 'insert_key'
+```
+
 ### Collecting Data
 This project uses TP Link Energy Monitor project to analyse the signal from a TP Link smart plug on my home network.
 
