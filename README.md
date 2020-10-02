@@ -10,13 +10,13 @@ Code is run on Raspberry Pi using SSH and the terminal multiplexer, Screen.
 ### Set Up Octopus API & AWS Buckets
 Create an account for AWS taking note of your `ACCESS_KEY` and `SECRET_KEY`. Create two S3 buckets named `elecprices` and `elecdemand`. Create an account for the Octopus Energy API, taking note of your `API_Key`. Create two files with the following format;
 
-    keys/AWS_keys.py
+keys/AWS_keys.py
 ```
     ACCESS_KEY = 'insert_key'
     SECRET_KEY = 'insert_key'
 ```
 
-    keys/octopus_keys.py
+keys/octopus_keys.py
 ```
     API_Key = 'insert_key'
 ```
