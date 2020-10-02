@@ -1,5 +1,5 @@
 .git
-keys
+keys/*.py
 functions/__pychache__
 *.pyc
 .DS_Store
