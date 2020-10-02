@@ -4,23 +4,39 @@ Project for Raspberry Pi 3 to collect, store and upload electricity demand and p
 
 To use this project AWS and Octopus API keys will need to be saved in the necessary folders.
 
-Code is run on Raspberry Pi using SSH and linux screen tool.
+Code is run on Raspberry Pi using SSH and the terminal multiplexer, Screen.
 
-## Collecting Data
+## Set Up
+### Collecting Data
 This project uses TP Link Energy Monitor project to analyse the signal from a TP Link smart plug on my home network.
 
 See https://github.com/jamesbarnett91/tplink-energy-monitor
 
-Once in the `electricity-upload` directory it should be installed using;
+Get into the right directory by running, `cd electricity-upload` and then install the above project using;
 
 ```   
     git clone https://github.com/jamesbarnett91/tplink-energy-monitor
     cd tplink-energy-monitor
     npm install
+```
+
+A new screen session should be started to ensure that the SSH session used for data collection does not drop. Naming the session helps with identifying later on.
+
+```
+    screen -S data_collection
     npm start
 ```
 
-Electricity price data is also downloaded from the Octopus API.
+Crontab should be used to schedule `processing.py` once every day. This script will;
+- scrape electricity price data from the Octopus API
+- upload electricity price data to AWS S3 bucket
+- convert electricity demand data from json format to csv format
+- upload electricity demand data to AWS S3 bucket
+
+To schedule running of script run `crontab -e` and add the following line;
+```
+    59 23 * * * cd Documents/Projects/electricity-upload && python processing.py
+```
 
 ## Storing & Uploading Data
 Data is then stored locally on the Raspberry Pi before being uploaded to AWS every night using `processing.py` sceduled with crontab.
