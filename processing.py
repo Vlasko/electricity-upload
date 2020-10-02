@@ -12,7 +12,7 @@ from functions.demand_functions import current_demand_json_to_csv
 from functions.aws_functions import upload_to_aws
 from functions.price_functions import price_store
 
-#call(['node', './tplink-energy-monitor/app.js'])
+bucket_name= ['elecprices', 'elecdemand']
 
 def upload_demand():
     directory = os.getcwd()
@@ -22,11 +22,11 @@ def upload_demand():
 
     # Prices
     upload_to_aws(directory+'/files/prices/'+ today +'_prices.csv',
-                  'lukaprices', today +'_prices.csv')
+                  bucket_name[0], today +'_prices.csv')
     # Demand
     current_demand_json_to_csv()
     upload_to_aws(directory+'/files/demand/'+ today +'_demand.csv',
-                  'fridgedemand', today +'_demand.csv')
+                  bucket_name[1], today +'_demand.csv')
 
 try:
     upload_demand()
