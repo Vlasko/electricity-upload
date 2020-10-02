@@ -45,7 +45,7 @@ A new screen session should be started to ensure that the SSH session used for d
 ```
 ### Schedule Download/Upload
 Crontab should be used to schedule `processing.py` once every day. This script will;
-- scrape electricity price data from the Octopus API
+- download electricity price data from the Octopus API
 - upload electricity price data to AWS S3 bucket
 - convert electricity demand data from json format to csv format
 - upload electricity demand data to AWS S3 bucket
@@ -59,6 +59,6 @@ In case any uploaded is missed (due to dropped network connection) a script has 
 
 # To Do
 - [x] Update ReadMe
-- [ ] Amend keys storage to allow other users to save their own keys
+- [X] Amend keys storage to allow other users to save their own keys
 - [ ] Create `setup.py` to create necessary file structure to store data, and amend the json logger from tplink-energy-monitor
 - [ ] Enable automated running of `npm` file that runs on startup or if an error is encountered
