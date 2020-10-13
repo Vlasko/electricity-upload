@@ -14,7 +14,7 @@ from functions.price_functions import price_store
 
 bucket_name= ['elecprices', 'elecdemand']
 
-def upload_demand():
+def upload():
     directory = os.getcwd()
     price_store()
     print('price stored')
@@ -29,7 +29,7 @@ def upload_demand():
                   bucket_name[1], today +'_demand.csv')
 
 try:
-    upload_demand()
+    upload()
     requests.post('https://maker.ifttt.com/trigger/upload_event/with/key/dbcGxPSBCligASFX4fRk3p')
 except Exception as e:
     print(e)
